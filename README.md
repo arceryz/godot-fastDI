@@ -30,4 +30,6 @@ or place it locally in the scene where you want to use the UI (but you will not 
 
 # Demo
 
-![fdi_demo](/demo_picture.png)
+A demo scene is included with a player controller. The plots are driven from the file [scn_test.gd](/scn_test.gd). Refer to the demo and the UI script [fdi.gd](/fast_debug_interface/fdi.gd) if you need information!
+
+![fdi_demo](/demo.gif)

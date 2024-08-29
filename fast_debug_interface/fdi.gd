@@ -170,6 +170,8 @@ func _ready() -> void:
 	FlagTemplate.hide()
 	SetFlag("pause_game", false)
 	SetFlag("show_collision_shapes", false)
+	SetFlag("fullscreen", false)
+	SetFlag("vsync", true)
 
 	##### Console #####
 	ConsoleText.clear()
@@ -257,7 +259,11 @@ func _OnFlagCheckboxToggled(enabled: bool, fname: String):
 			SetCollisionShapesVisible(enabled)
 		"pause_game":
 			get_tree().paused = enabled
-
+		"fullscreen":
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if enabled else DisplayServer.WINDOW_MODE_WINDOWED)
+		"vsync":
+			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED if enabled else DisplayServer.VSYNC_DISABLED)
+			
 func SetFlag(fname: String, enabled: bool):
 	GetFlag(fname)
 	var flag: Flag = flags[fname]

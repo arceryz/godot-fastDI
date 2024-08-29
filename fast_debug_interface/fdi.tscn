@@ -185,11 +185,12 @@ text = "fly_mode*"
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
-anchor_bottom = 0.519
+anchor_right = 0.004
+anchor_bottom = 0.356
 offset_left = 496.0
 offset_top = 8.0
-offset_right = 832.0
-offset_bottom = -0.520081
+offset_right = 824.32
+offset_bottom = -0.480011
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MouseBlocker/Values"]
 layout_mode = 2
