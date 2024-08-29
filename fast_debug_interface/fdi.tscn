@@ -1,0 +1,393 @@
+[gd_scene load_steps=7 format=3 uid="uid://blp63bytgnqt4"]
+
+[ext_resource type="Script" path="res://fast_debug_interface/fdi.gd" id="1_kgbbw"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_l4ub8"]
+device = -1
+ctrl_pressed = true
+keycode = 67
+unicode = 67
+
+[sub_resource type="InputEventKey" id="InputEventKey_2r4jx"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="InputEventKey" id="InputEventKey_d5vcq"]
+device = -1
+ctrl_pressed = true
+keycode = 90
+unicode = 122
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fxqxn"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_n57uv"]
+
+[node name="FastDebugInterface" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_kgbbw")
+camera_cycle_event = SubResource("InputEventKey_l4ub8")
+toggle_interface_event = SubResource("InputEventKey_2r4jx")
+exit_game_event = SubResource("InputEventKey_d5vcq")
+
+[node name="MouseBlocker" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainButtons" type="PanelContainer" parent="MouseBlocker"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -39.0
+offset_right = 80.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="MouseBlocker/MainButtons"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="HBoxContainer" type="VBoxContainer" parent="MouseBlocker/MainButtons/MarginContainer"]
+layout_mode = 2
+
+[node name="ReturnButton" type="Button" parent="MouseBlocker/MainButtons/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Return"
+
+[node name="ExitGameButton" type="Button" parent="MouseBlocker/MainButtons/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Exit Game"
+
+[node name="Cameras" type="PanelContainer" parent="MouseBlocker"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.519
+offset_left = 16.0
+offset_top = 10.0
+offset_right = 256.0
+offset_bottom = -0.312042
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MouseBlocker/Cameras"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MouseBlocker/Cameras/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MouseBlocker/Cameras/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Camera's"
+horizontal_alignment = 1
+
+[node name="CamerasAlwaysVisibleCheckBox" type="CheckBox" parent="MouseBlocker/Cameras/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Always visible"
+
+[node name="MarginContainer" type="MarginContainer" parent="MouseBlocker/Cameras/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="CameraList" type="ItemList" parent="MouseBlocker/Cameras/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+item_count = 1
+fixed_icon_size = Vector2i(16, 16)
+item_0/text = "Player"
+item_0/icon = SubResource("PlaceholderTexture2D_fxqxn")
+
+[node name="Flags" type="PanelContainer" parent="MouseBlocker"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.519
+offset_left = 264.0
+offset_top = 8.0
+offset_right = 488.0
+offset_bottom = -0.312042
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MouseBlocker/Flags"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MouseBlocker/Flags/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MouseBlocker/Flags/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Flags"
+horizontal_alignment = 1
+
+[node name="FlagsAlwaysVisibleCheckBox" type="CheckBox" parent="MouseBlocker/Flags/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Always visible"
+
+[node name="MarginContainer" type="MarginContainer" parent="MouseBlocker/Flags/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 6
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MouseBlocker/Flags/VBoxContainer/MarginContainer"]
+clip_contents = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MouseBlocker/Flags/VBoxContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 5
+
+[node name="FlagContainer" type="VBoxContainer" parent="MouseBlocker/Flags/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="FlagTemplate" type="HBoxContainer" parent="MouseBlocker/Flags/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/FlagContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="MouseBlocker/Flags/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/FlagContainer/FlagTemplate"]
+layout_mode = 2
+button_pressed = true
+
+[node name="Label" type="Label" parent="MouseBlocker/Flags/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/FlagContainer/FlagTemplate"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "fly_mode*"
+
+[node name="Values" type="PanelContainer" parent="MouseBlocker"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.519
+offset_left = 496.0
+offset_top = 8.0
+offset_right = 832.0
+offset_bottom = -0.520081
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MouseBlocker/Values"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MouseBlocker/Values/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MouseBlocker/Values/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Values"
+horizontal_alignment = 1
+
+[node name="ValuesAlwaysVisibleCheckBox" type="CheckBox" parent="MouseBlocker/Values/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Always visible"
+
+[node name="MarginContainer" type="MarginContainer" parent="MouseBlocker/Values/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 6
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MouseBlocker/Values/VBoxContainer/MarginContainer"]
+clip_contents = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MouseBlocker/Values/VBoxContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 5
+
+[node name="ValueContainer" type="GridContainer" parent="MouseBlocker/Values/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 3
+
+[node name="ValueLabelTemplate" type="Label" parent="MouseBlocker/Values/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/ValueContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 15
+text = "player_speed"
+
+[node name="ValueNumberTemplate" type="Label" parent="MouseBlocker/Values/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/ValueContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "= 278.8"
+
+[node name="ValueSliderTemplate" type="HSlider" parent="MouseBlocker/Values/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/ValueContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 2.0
+
+[node name="Console" type="PanelContainer" parent="MouseBlocker"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.543
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 0.135986
+offset_right = 488.0
+offset_bottom = -24.0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MouseBlocker/Console"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MouseBlocker/Console/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MouseBlocker/Console/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Console"
+horizontal_alignment = 1
+
+[node name="ConsoleClearButton" type="Button" parent="MouseBlocker/Console/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Clear"
+
+[node name="ConsoleScrollCheckBox" type="CheckBox" parent="MouseBlocker/Console/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+button_pressed = true
+text = "Scroll to latest"
+
+[node name="ConsoleAlwaysVisibleCheckBox" type="CheckBox" parent="MouseBlocker/Console/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Always visible"
+
+[node name="PanelContainer" type="PanelContainer" parent="MouseBlocker/Console/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MouseBlocker/Console/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 3
+
+[node name="ConsoleScrollContainer" type="ScrollContainer" parent="MouseBlocker/Console/VBoxContainer/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ConsoleText" type="RichTextLabel" parent="MouseBlocker/Console/VBoxContainer/PanelContainer/MarginContainer/ConsoleScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "hello world"
+fit_content = true
+
+[node name="Plots" type="PanelContainer" parent="MouseBlocker"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.611
+anchor_right = 1.0
+offset_left = 48.128
+offset_top = 8.0
+offset_right = -16.0
+offset_bottom = 137.0
+grow_horizontal = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MouseBlocker/Plots"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MouseBlocker/Plots/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MouseBlocker/Plots/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Plots"
+horizontal_alignment = 1
+
+[node name="PlotsAlwaysVisibleCheckBox" type="CheckBox" parent="MouseBlocker/Plots/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Always visible"
+
+[node name="MarginContainer" type="MarginContainer" parent="MouseBlocker/Plots/VBoxContainer"]
+layout_mode = 2
+
+[node name="PlotsContainer" type="VBoxContainer" parent="MouseBlocker/Plots/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PlotTemplate" type="PanelContainer" parent="MouseBlocker/Plots/VBoxContainer/MarginContainer/PlotsContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MouseBlocker/Plots/VBoxContainer/MarginContainer/PlotsContainer/PlotTemplate"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MouseBlocker/Plots/VBoxContainer/MarginContainer/PlotsContainer/PlotTemplate/Control"]
+layout_mode = 1
+offset_top = 1.0
+offset_right = 432.0
+offset_bottom = 15.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 10
+text = "player_x_position"
+horizontal_alignment = 1
+
+[node name="Logo" type="TextureRect" parent="MouseBlocker"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -168.0
+offset_top = -77.0
+offset_right = -17.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("PlaceholderTexture2D_n57uv")

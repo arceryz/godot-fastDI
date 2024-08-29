@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqmchnnq1r175"]
+
+[ext_resource type="Material" uid="uid://3lm1kaonf0b0" path="res://floor/uv_grid/mat_uv_grid.tres" id="1_jewy3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tmn5h"]
+size = Vector3(10, 1, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bnrrg"]
+size = Vector3(10, 1, 10)
+
+[node name="PfbTestFloor10x10n" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_tmn5h")
+surface_material_override/0 = ExtResource("1_jewy3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_bnrrg")

@@ -1,0 +1,95 @@
+[gd_scene load_steps=7 format=3 uid="uid://ctkjq5i26ltw8"]
+
+[ext_resource type="Script" path="res://scn_test.gd" id="1_we6ms"]
+[ext_resource type="PackedScene" uid="uid://cqmchnnq1r175" path="res://floor/pfb_test_floor10x10.tscn" id="2_tdby6"]
+[ext_resource type="PackedScene" uid="uid://3vqnqppxg71c" path="res://player/pfb_player.tscn" id="3_vrco1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iurvg"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_8cubt"]
+sky_material = SubResource("ProceduralSkyMaterial_iurvg")
+
+[sub_resource type="Environment" id="Environment_xrjgs"]
+background_mode = 2
+sky = SubResource("Sky_8cubt")
+tonemap_mode = 2
+
+[node name="ScnTestMap" type="Node3D"]
+script = ExtResource("1_we6ms")
+
+[node name="Level" type="Node" parent="."]
+
+[node name="PfbTestFloor10x10" parent="Level" instance=ExtResource("2_tdby6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+
+[node name="PfbTestFloor10x11" parent="Level" instance=ExtResource("2_tdby6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 20)
+
+[node name="PfbTestFloor10x12" parent="Level" instance=ExtResource("2_tdby6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 10)
+
+[node name="PfbTestFloor10x13" parent="Level" instance=ExtResource("2_tdby6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
+
+[node name="PfbTestFloor10x14" parent="Level" instance=ExtResource("2_tdby6")]
+
+[node name="PfbTestFloor10x18" parent="Level" instance=ExtResource("2_tdby6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="PfbTestFloor10x19" parent="Level" instance=ExtResource("2_tdby6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
+
+[node name="PfbTestFloor10x20" parent="Level" instance=ExtResource("2_tdby6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -20)
+
+[node name="PfbTestFloor10x22" parent="Level" instance=ExtResource("2_tdby6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -20)
+
+[node name="PfbTestFloor10x26" parent="Level" instance=ExtResource("2_tdby6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -10)
+
+[node name="PfbTestFloor10x27" parent="Level" instance=ExtResource("2_tdby6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 0)
+
+[node name="PfbTestFloor10x21" parent="Level" instance=ExtResource("2_tdby6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -20)
+
+[node name="PfbTestFloor10x23" parent="Level" instance=ExtResource("2_tdby6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -20)
+
+[node name="PfbTestFloor10x24" parent="Level" instance=ExtResource("2_tdby6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -10)
+
+[node name="PfbTestFloor10x25" parent="Level" instance=ExtResource("2_tdby6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
+
+[node name="PfbTestFloor10x15" parent="Level" instance=ExtResource("2_tdby6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="PfbTestFloor10x16" parent="Level" instance=ExtResource("2_tdby6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 10)
+
+[node name="PfbTestFloor10x17" parent="Level" instance=ExtResource("2_tdby6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 20)
+
+[node name="Cameras" type="Node" parent="."]
+
+[node name="FrontCamera" type="Camera3D" parent="Cameras" groups=["game_camera"]]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 25, 37.5)
+
+[node name="SideCamera" type="Camera3D" parent="Cameras" groups=["game_camera"]]
+transform = Transform3D(5.06639e-07, -0.5, 0.866025, 5.98912e-09, 0.866025, 0.5, -1, -2.48133e-07, 4.41757e-07, 35.5, 25, -12.5)
+
+[node name="CloseBackCamera" type="Camera3D" parent="Cameras" groups=["game_camera"]]
+transform = Transform3D(-1, -2.26277e-07, 4.03902e-07, -1.1403e-07, 0.965926, 0.258819, -4.48704e-07, 0.258819, -0.965926, 1, 7.5, -27.5)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xrjgs")
+
+[node name="PfbPlayer" parent="." instance=ExtResource("3_vrco1")]
