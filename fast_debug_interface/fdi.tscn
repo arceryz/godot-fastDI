@@ -25,7 +25,6 @@ unicode = 122
 [node name="FastDebugInterface" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_kgbbw")
-plot_time_range = 30.0
 camera_cycle_event = SubResource("InputEventKey_l4ub8")
 toggle_interface_event = SubResource("InputEventKey_2r4jx")
 exit_game_event = SubResource("InputEventKey_d5vcq")
