@@ -382,7 +382,8 @@ func _OnPlotDraw(plot: Plot):
 	for t in range(0, plot_time_range, 10):
 		var ux = (t+fmod(plot_time, 10.0)) / plot_time_range
 		var edgepoint = Vector2(ux*rect.size.x, rect.size.y)
-		plot.root.draw_string(ThemeDB.fallback_font, edgepoint-Vector2(0,TICK_LENGTH+2), str(int(t+floor(plot_time/10.0)*10.0)), ALIGNMENT, -1, FONT_SIZE)
+		var current_time = floor(plot_time/10.0)*10.0-t
+		plot.root.draw_string(ThemeDB.fallback_font, edgepoint-Vector2(0,TICK_LENGTH+2), str(int(current_time)), ALIGNMENT, -1, FONT_SIZE)
 
 func AdvancePlots():
 	for plot_name in plots:
