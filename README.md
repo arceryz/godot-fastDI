@@ -2,17 +2,17 @@
 
 ![fastDI](/fastDI.png)
 
-A single scene, single script debug interface for Godot 4+. *Designed to just copy paste*. Just copy paste and get a basic debug menu for your games.
+A feature-rich yet simple debug UI that is fast to set up in your project. Only one [GDScript](/fastDI/fastDI.gd) and one [Scene](/fastDI/fastDI.tscn) file that you must include in your project. Access globally with autoload or locally with instantiation, as you prefer. FastDI strifes to be that simple solution to improve your quality-of-life when debugging.
 
 # Demo
 
-A demo scene is included with a player controller. The plots are driven from the file [scn_test.gd](/scn_test.gd). Refer to the demo and the UI script [fastDI.gd](/fastDI/fastDI.gd) if you need information!
+A demo scene is included with a player controller. All calls to the `FastDI` autoload are made from [scn_test.gd](/scn_test.gd).
 
 ![fastDI_demo](/demo.gif)
 
 # Features
 
-All these features are in-game:
+The debug interface supports all of the following features:
 - **Camera Swapping** with cameras in group `game_camera` and shortcut `CTRL-C`.
 - **Flag Setting/Getting** with `GetFlag` and `SetFlag`.
 - **True Editor Console** (works with `print()` statements).
@@ -21,7 +21,7 @@ All these features are in-game:
 - **Pause Menu + Exit Game Button**
 
 Everything is centered on the two files `fastDI.gd` and `fastDI.tscn`. The
-full documentation is present in the GDscript file.
+full documentation is present in the GDscript file. You can disable features by not using the associated API functions. The UI can be tailored to your liking in the scene file [scn_test.tscn](/scn_test.tscn).
 
 The UI layout can be modified by changing the scene.
 
@@ -32,7 +32,7 @@ To install, simply download the two files
 - [fastDI.tscn](/fastDI/fastDI.tscn)
 
 and put them anywhere in your project. Then either add the `fastDI.tscn` as an autoload for global access,
-or place it locally in the scene where you want to use the UI (but you will not get glboal access).
+or place it locally in the scene where you want to use the UI, but you will have to link signals manually.
 
 # Contributing
 
