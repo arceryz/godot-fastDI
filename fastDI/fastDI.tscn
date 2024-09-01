@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://blp63bytgnqt4"]
 
-[ext_resource type="Script" path="res://fast_debug_interface/fdi.gd" id="1_kgbbw"]
+[ext_resource type="Script" path="res://fastDI/fastDI.gd" id="1_1rham"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_l4ub8"]
 device = -1
@@ -22,9 +22,9 @@ unicode = 122
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_n57uv"]
 
-[node name="FastDebugInterface" type="CanvasLayer"]
+[node name="FastDI" type="CanvasLayer"]
 process_mode = 3
-script = ExtResource("1_kgbbw")
+script = ExtResource("1_1rham")
 camera_cycle_event = SubResource("InputEventKey_l4ub8")
 toggle_interface_event = SubResource("InputEventKey_2r4jx")
 exit_game_event = SubResource("InputEventKey_d5vcq")
