@@ -1,7 +1,7 @@
 ##### HOW TO USE THE FAST DEBUG INTERFACE #####
 #
 # SETUP
-# 1A. If you want global access to all settings, make an autoload of the SCENE with name "FDI".
+# 1A. If you want global access to all settings, make an autoload of the SCENE with name "FastDI".
 # 1B. If you want a UI per scene, just add the prefab to your scenes, but you will need to use
 #     signals/global variables if you want to send the settings to your game.
 # 2.  Configure the user interface to your liking by editing the UI scene (.tscn) file.

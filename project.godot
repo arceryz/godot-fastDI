@@ -10,14 +10,15 @@ config_version=5
 
 [application]
 
-config/name="Fast Debug Interface"
+config/name="FastDI"
+config/description="A debug interface that is fast to setup up in only two files."
 run/main_scene="res://scn_test.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-FDI="*res://fast_debug_interface/fdi.tscn"
+FastDI="*res://fastDI/fastDI.tscn"
 
 [debug]
 
