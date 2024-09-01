@@ -23,8 +23,6 @@ The debug interface supports all of the following features:
 Everything is centered on the two files `fastDI.gd` and `fastDI.tscn`. The
 full documentation is present in the GDscript file. You can disable features by not using the associated API functions. The UI can be tailored to your liking in the scene file [scn_test.tscn](/scn_test.tscn).
 
-The UI layout can be modified by changing the scene.
-
 # Installation
 
 To install, simply download the two files
